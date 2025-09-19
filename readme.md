@@ -1,6 +1,6 @@
 # COA-ADK-Agent
 
-An AI Agent built with the ADK Framework that analyzes a certificate of analysis against it's spec sheet. 
+An AI Agent built with the ADK Framework that analyzes a certificate of analysis against a spec sheet. 
 
 ## Getting Started
 
