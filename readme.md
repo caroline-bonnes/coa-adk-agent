@@ -11,7 +11,7 @@ To get a local copy up and running, follow these steps.
 
 1.  **Clone the repository**
 
-2.  **Create and activate a virtual environment**\
+2.  **Create and activate a virtual environment**
     * `python3 -m venv env`
     * `source env/bin/activate`
 
@@ -24,7 +24,7 @@ To get a local copy up and running, follow these steps.
     * Create a `.env` file in the root directory and add the necessary configuration using the `.envexample` file as a template.
 
 ## Usage
-To test the agent locally, cd to the `agents` director and run `adk web` in the terminal.
+To test the agent locally, cd to the `agents` directory and run `adk web` in the terminal with your virtual environment active.
 
 Ensure all files in the `sample_docs` folder are loaded into your GCS bucket before trying to use the agent. The bucket name should be set in the BUCKET environment variable. 
 
