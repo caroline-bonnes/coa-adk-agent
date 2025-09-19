@@ -5,8 +5,10 @@ from google.adk.agents.callback_context import CallbackContext
 from google.cloud import storage
 from google.adk.tools.base_tool import BaseTool
 from typing import Dict, Any
+import os 
 
-
+bucket_uri = os.getenv("BUCKET") 
+bucket_name= bucket_uri.removeprefix("gs://")
 
 # Initialize Vertex AI once
 vertexai.init()
@@ -79,7 +81,7 @@ def compare_docs(gcs_uri: str, product:str, tool_context: ToolContext) -> str:
         uri=gcs_uri
     )
 
-    spec_uri = f'gs://cob-agent-sandbox/schreiber-specs/{product} Spec Sheet.pdf'
+    spec_uri = f'{bucket_uri}/{product} Spec Sheet.pdf'
     spec_sheet = Part.from_uri(
         mime_type="application/pdf",
         uri=spec_uri
@@ -132,8 +134,8 @@ def determine_hold(tool_context: ToolContext):
 def update_hold_database(tool_context: ToolContext):
     "Updates the product hold database."
     storage_client = storage.Client()
-    bucket = storage_client.bucket('cob-agent-sandbox')
-    blob = bucket.blob('schreiber_test/product_holds.txt')
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob('/product_holds.txt')
 
     product = tool_context.state['product']
 
