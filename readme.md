@@ -35,12 +35,8 @@ The agent can then be prompted by providing the GCS URI to either of the sample 
 
 The agent takes in a Google Cloud Storage URI as an input to point to a COA document.
 
-After recieving the COA document, the agent will extract the product number using the `get_product_number` tool,\
-and use this to find the relevant spec sheet. The Agent will then pass the spec sheet and COA to the `compare_docs` \
-tool to analyze the COA against the Spec Sheet. The analysis and product number are both stored as State variables.
+After recieving the COA document, the agent will extract the product number using the `get_product_number` tool, and use this to find the relevant spec sheet. The Agent will then pass the spec sheet and COA to the `compare_docs` tool to analyze the COA against the Spec Sheet. The analysis and product number are both stored as State variables.
 
-After the analysis, the root agent will hand the interation to the `ProductHoldAgent`, which is responsible for reviewing\
-the analysis and determining if a product should be put on hold using the `determine_hold` tool. Lastly, if the product should\
-be put on hold, the agent will update the hold database with the product number using the `update_hold_database` tool.
+After the analysis, the root agent will hand the interation to the `ProductHoldAgent`, which is responsible for reviewing the analysis and determining if a product should be put on hold using the `determine_hold` tool. Lastly, if the product should be put on hold, the agent will update the hold database with the product number using the `update_hold_database` tool.
 
 
